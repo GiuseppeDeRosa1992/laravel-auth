@@ -3,7 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\DashboardController; //<---- Import del controller precedentemente creato!
 use App\Http\Controllers\Admin\ProjectController;
+use App\Http\Controllers\Admin\TypeController;
 use App\Models\Project;
+use App\Models\Type;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,7 +34,9 @@ Route::middleware(['auth'])
         // - il percorso "/" diventa "admin/"
         // - il nome della rotta ->name("dashboard") diventa ->name("admin.dashboard")
         Route::resource('/projects', ProjectController::class);
+        Route::resource('types', TypeController::class);
         Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
     });
+
 
 require __DIR__ . '/auth.php';
