@@ -14,4 +14,10 @@ class Type extends Model
         'description',
         'icon'
     ];
+
+    //dichiaro che type passa dati a progetti
+    public function projects()
+    {
+        return $this->hasMany(Project::class);
+    }
 }

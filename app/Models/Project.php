@@ -14,4 +14,10 @@ class Project extends Model
         'description',
         'img_preview'
     ];
+
+    //dichiaro in una funzione che project dipende da type
+    public function type()
+    {
+        return $this->belongsTo(Type::class);
+    }
 }
