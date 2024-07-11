@@ -45,6 +45,17 @@
 					<div class="form-text text-danger">The Link Preview field is required.</div>
 				@enderror
 			</div>
+
+			<div class="mb-3">
+				<select name="name" id="">
+					@foreach ($types as $type)
+						<option value="">{{ $type->name }}</option>
+					@endforeach
+				</select>
+				@error('img_preview')
+					<div class="form-text text-danger">The Link Preview field is required.</div>
+				@enderror
+			</div>
 			<button type="submit" class="btn btn-outline-danger">Modifica Progetto</button>
 
 		</form>

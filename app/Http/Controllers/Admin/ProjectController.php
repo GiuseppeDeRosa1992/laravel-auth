@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 
 use App\Models\Project;
+use App\Models\Type;
 use Illuminate\Http\Request;
 
 class ProjectController extends Controller
@@ -34,9 +35,9 @@ class ProjectController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            'title'=>'required',
-            'description'=>'required|min:10|max:255',
-            'img_preview'=>'required'
+            'title' => 'required',
+            'description' => 'required|min:10|max:255',
+            'img_preview' => 'required'
         ]);
 
         $newProject = new Project();
@@ -62,8 +63,12 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
+
+        $types = Type::all();
+
         $data = [
-            'project' => $project
+            'project' => $project,
+            'types' => $types,
         ];
         return view('admin.projects.edit', $data);
     }
@@ -74,9 +79,9 @@ class ProjectController extends Controller
     public function update(Request $request, Project $project)
     {
         $data = $request->validate([
-            'title'=>'required',
-            'description'=>'required|min:10|max:255',
-            'img_preview'=>'required'
+            'title' => 'required',
+            'description' => 'required|min:10|max:255',
+            'img_preview' => 'required'
         ]);
 
         $project->update($data);
