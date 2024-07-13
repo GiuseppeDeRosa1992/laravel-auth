@@ -62,7 +62,10 @@ class TypeController extends Controller
      */
     public function edit(Type $type)
     {
-        return " ciao sono edit";
+        $data = [
+            'types' => $type
+        ];
+        return view('admin.types.edit', $data);
     }
 
     /**
@@ -70,7 +73,15 @@ class TypeController extends Controller
      */
     public function update(Request $request, Type $type)
     {
-        //
+        $data = $request->validate([
+            'name' => 'required',
+            'description' => 'required|min:10|max:255',
+            'icon' => 'required'
+        ]);
+
+        $type->update($data);
+
+        return redirect()->route('admin.types.index', $type);
     }
 
     /**

@@ -10,6 +10,10 @@
 					<a href="{{ route('admin.types.show', $type->id) }}">{{ $type->name }}</a>
 
 				</li>
+
+				<a href="{{ route('admin.types.edit', $type->id) }}" class="btn btn-outline-primary my-3">Modifica
+					Tipo</a>
+
 				<form method="POST" action="{{ route('admin.types.destroy', $type->id) }}">
 					@csrf
 
