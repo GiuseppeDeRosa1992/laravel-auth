@@ -22,8 +22,16 @@
 
 			@csrf
 			<div class="mb-3">
-				<label for="name" class="form-label">Modifica Titolo Tipo</label>
-				<input type="text" class="form-control" name="name" value="{{ old('name', $types->name) }}">
+				<div class="mb-3">
+					<select name="name" id="">
+						@foreach ($tipi as $tipo)
+							<option value="">{{ $tipo->name }}</option>
+						@endforeach
+					</select>
+					@error('name')
+						<div class="form-text text-danger">The Link Preview field is required.</div>
+					@enderror
+				</div>
 				@error('name')
 					<div class="form-text text-danger">{{ $message }}</div>
 				@enderror

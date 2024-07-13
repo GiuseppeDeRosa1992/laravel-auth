@@ -36,7 +36,7 @@ class ProjectController extends Controller
     {
         $data = $request->validate([
             'title' => 'required',
-            'description' => 'required|min:10|max:255',
+            'description' => 'required|min:10',
             'img_preview' => 'required'
         ]);
 
@@ -80,7 +80,7 @@ class ProjectController extends Controller
     {
         $data = $request->validate([
             'title' => 'required',
-            'description' => 'required|min:10|max:255',
+            'description' => 'required|min:10',
             'img_preview' => 'required'
         ]);
 

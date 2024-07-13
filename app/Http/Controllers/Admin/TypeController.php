@@ -35,7 +35,7 @@ class TypeController extends Controller
     {
         $data = $request->validate([
             'name' => 'required',
-            'description' => 'required|min:10|max:255',
+            'description' => 'required|min:10',
             'icon' => 'required'
         ]);
 
@@ -62,8 +62,10 @@ class TypeController extends Controller
      */
     public function edit(Type $type)
     {
+        $tipo = Type::all();
         $data = [
-            'types' => $type
+            'types' => $type,
+            'tipi' => $tipo
         ];
         return view('admin.types.edit', $data);
     }
@@ -75,7 +77,7 @@ class TypeController extends Controller
     {
         $data = $request->validate([
             'name' => 'required',
-            'description' => 'required|min:10|max:255',
+            'description' => 'required|min:10',
             'icon' => 'required'
         ]);
 

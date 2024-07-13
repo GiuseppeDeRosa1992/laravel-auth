@@ -52,7 +52,7 @@
 						<option value="">{{ $type->name }}</option>
 					@endforeach
 				</select>
-				@error('img_preview')
+				@error('name')
 					<div class="form-text text-danger">The Link Preview field is required.</div>
 				@enderror
 			</div>
