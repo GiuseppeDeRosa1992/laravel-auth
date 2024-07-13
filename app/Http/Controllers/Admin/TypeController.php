@@ -25,7 +25,7 @@ class TypeController extends Controller
      */
     public function create()
     {
-        return " ciao sono create";
+        return view('admin.types.create');
     }
 
     /**
@@ -33,7 +33,17 @@ class TypeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->validate([
+            'name' => 'required',
+            'description' => 'required|min:10|max:255',
+            'icon' => 'required'
+        ]);
+
+        $newType = new Type();
+
+        $newType->fill($data);
+        $newType->save();
+        return redirect()->route('admin.types.index');
     }
 
     /**
@@ -68,6 +78,7 @@ class TypeController extends Controller
      */
     public function destroy(Type $type)
     {
-        //
+        $type->delete();
+        return redirect()->route('admin.types.index');
     }
 }
