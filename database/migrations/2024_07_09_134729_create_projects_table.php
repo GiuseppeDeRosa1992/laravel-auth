@@ -17,7 +17,7 @@ return new class extends Migration
             $table->text('description');
             $table->string('img_preview');
 
-            $table->foreignId('type_id');
+            $table->foreignId('type_id')->constrained();
 
             $table->timestamps();
         });

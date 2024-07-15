@@ -12,7 +12,8 @@ class Project extends Model
     protected $fillable = [
         'title',
         'description',
-        'img_preview'
+        'img_preview',
+        'type_id'
     ];
 
     //dichiaro in una funzione che project dipende da type

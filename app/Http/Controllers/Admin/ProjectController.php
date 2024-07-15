@@ -26,7 +26,12 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        return view('admin.projects.create');
+        $types = Type::all();
+
+        $data = [
+            'types' => $types,
+        ];
+        return view('admin.projects.create', $data);
     }
 
     /**
@@ -37,7 +42,8 @@ class ProjectController extends Controller
         $data = $request->validate([
             'title' => 'required',
             'description' => 'required|min:10',
-            'img_preview' => 'required'
+            'img_preview' => 'required',
+            'type_id' => 'required'
         ]);
 
         $newProject = new Project();
@@ -81,12 +87,13 @@ class ProjectController extends Controller
         $data = $request->validate([
             'title' => 'required',
             'description' => 'required|min:10',
-            'img_preview' => 'required'
+            'img_preview' => 'required',
+            'type_id' => 'required|exists:types,id' //exists:tabella dove cercare, colonna dove cercare.
         ]);
 
         $project->update($data);
 
-        return redirect()->route('admin.projects.index', $project);
+        return redirect()->route('admin.projects.index');
     }
 
     /**
