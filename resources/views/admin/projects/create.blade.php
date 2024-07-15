@@ -45,6 +45,17 @@
 				@enderror
 			</div>
 
+			<div class="mb-3">
+				<select name="type_id" id="">
+					@foreach ($types as $type)
+						<option value="{{ $type->id }}">{{ $type->name }}</option>
+					@endforeach
+				</select>
+				@error('type_id')
+					<div class="form-text text-danger">The Link Preview field is required.</div>
+				@enderror
+			</div>
+
 			<button type="submit" class="btn btn-outline-primary">Invia Nuovo Progetto</button>
 		</form>
 	</div>

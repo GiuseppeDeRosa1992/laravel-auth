@@ -47,12 +47,12 @@
 			</div>
 
 			<div class="mb-3">
-				<select name="name" id="">
+				<select name="type_id" id="">
 					@foreach ($types as $type)
-						<option value="">{{ $type->name }}</option>
+						<option value="{{ $type->id }}">{{ $type->name }}</option>
 					@endforeach
 				</select>
-				@error('name')
+				@error('type_id')
 					<div class="form-text text-danger">The Link Preview field is required.</div>
 				@enderror
 			</div>
