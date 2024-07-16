@@ -16,6 +16,12 @@
 							{{ $projects->type->name }}
 							<img src="{{ $projects->type->icon }}" alt="" class="img-fluid">
 						</p>
+						<p class="card-text">
+							<b>Linguaggio Usato:</b>
+							@foreach ($projects->languages as $language)
+								<span class="{{ $language->icon }}">{{ $language->name }}</span>
+							@endforeach
+						</p>
 					</div>
 				</div>
 			</div>

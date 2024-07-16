@@ -56,6 +56,19 @@
 				@enderror
 			</div>
 
+			<div class="mb-3">
+				@foreach ($languages as $language)
+					<div>
+						<label for="icon" class="form-check-label">{{ $language->name }}</label>
+						<input type="checkbox" name="languages[]" id="" value="{{ $language->id }}">
+					</div>
+				@endforeach
+
+				@error('languages[]')
+					<div class="form-text text-danger">The Link Preview field is required.</div>
+				@enderror
+			</div>
+
 			<button type="submit" class="btn btn-outline-primary">Invia Nuovo Progetto</button>
 		</form>
 	</div>

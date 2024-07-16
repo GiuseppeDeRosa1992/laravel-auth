@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-
+use App\Models\Language;
 use App\Models\Project;
 use App\Models\Type;
 use Illuminate\Http\Request;
@@ -27,9 +27,11 @@ class ProjectController extends Controller
     public function create()
     {
         $types = Type::all();
+        $languages = Language::all();
 
         $data = [
             'types' => $types,
+            'languages' => $languages
         ];
         return view('admin.projects.create', $data);
     }
@@ -43,13 +45,22 @@ class ProjectController extends Controller
             'title' => 'required',
             'description' => 'required|min:10',
             'img_preview' => 'required',
-            'type_id' => 'required'
+            'type_id' => 'required',
+            //passo al validate languages e gli dico che e un array e dopo tutto quello che c'è in languages con * con exists nella tabella languages id
+            'languages' => 'array',
+            'languages.*' => 'exists:languages,id',
         ]);
 
         $newProject = new Project();
 
         $newProject->fill($data);
         $newProject->save();
+
+        //dopo che ho slavato come nel seeder gli passo i linguaggi stavolta a mano tramite il create con le checkbox
+
+        $newProject->languages()->sync($data['languages']);
+
+
         return redirect()->route('admin.projects.index');
     }
 
@@ -71,10 +82,12 @@ class ProjectController extends Controller
     {
 
         $types = Type::all();
+        $languages = Language::all();
 
         $data = [
             'project' => $project,
             'types' => $types,
+            'languages' => $languages
         ];
         return view('admin.projects.edit', $data);
     }
@@ -88,10 +101,18 @@ class ProjectController extends Controller
             'title' => 'required',
             'description' => 'required|min:10',
             'img_preview' => 'required',
-            'type_id' => 'required|exists:types,id' //exists:tabella dove cercare, colonna dove cercare.
+            'type_id' => 'required|exists:types,id', //exists:tabella dove cercare, colonna dove cercare.
+            'languages' => 'array',
+            'languages.*' => 'exists:languages,id',
+
         ]);
 
         $project->update($data);
+
+        //dopo che ho slavato come nel seeder gli passo i linguaggi stavolta a mano tramite edit per fare update con le checkbox
+
+        $project->languages()->sync($data['languages']);
+
 
         return redirect()->route('admin.projects.index');
     }
