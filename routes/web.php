@@ -39,4 +39,16 @@ Route::middleware(['auth'])
     });
 
 
+//Auth::check()
+
+// public function index()
+//     {
+//         $projects = Project::with('languages')->get();
+//         if(Auth::check()){
+//             return view('admin.projects.index', compact('projects'));
+//         } else {
+//             return view('projects.index', compact('projects'));
+//         }
+//     }
+
 require __DIR__ . '/auth.php';

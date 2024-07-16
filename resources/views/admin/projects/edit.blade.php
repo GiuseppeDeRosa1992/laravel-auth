@@ -49,7 +49,7 @@
 			<div class="mb-3">
 				<select name="type_id" id="">
 					@foreach ($types as $type)
-						<option value="{{ $type->id }}">{{ $type->name }}</option>
+						<option value="{{ $type->id }}" @selected($type->id == $project->type->id)>{{ $type->name }}</option>
 					@endforeach
 				</select>
 				@error('type_id')

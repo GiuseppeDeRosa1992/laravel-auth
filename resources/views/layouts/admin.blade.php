@@ -45,30 +45,39 @@
 								</a>
 							</li>
 
-							<li class="nav-item">
-								<a class="nav-link text-white" href="{{ route('admin.projects.index') }}">
-									<i class="fa-solid fa-list-ul fa-lg fa-fw"></i> Lista progetti
-								</a>
 
+							<li class="nav-item text-center">
+								<p class="d-inline-flex gap-1">
+									<button class="btn btn-outline-primary text-white px-2" type="button" data-bs-toggle="collapse"
+										data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+										Progetti
+									</button>
+								</p>
+								<div class="collapse text-start" id="collapseExample">
+									<a class="nav-link text-white" href="{{ route('admin.projects.index') }}">
+										<i class="fa-solid fa-list-ul fa-lg fa-fw"></i> Lista progetti
+									</a>
+									<a class="nav-link text-white" href="{{ route('admin.projects.create') }}">
+										<i class="fa-solid fa-plus  fa-lg fa-fw"></i> Aggiungi progetto
+									</a>
+								</div>
 							</li>
-							<li class="nav-item">
-								<a class="nav-link text-white" href="{{ route('admin.projects.create') }}">
-									<i class="fa-solid fa-plus  fa-lg fa-fw"></i> Aggiungi progetto
-								</a>
-							</li>
 
-							<li class="nav-item">
-								<a class="nav-link text-white" href="{{ route('admin.types.index') }}">
-									<i class="fa-solid fa-list-ul fa-lg fa-fw"></i> Lista Tipo
-								</a>
-
-							</li>
-
-							<li class="nav-item">
-								<a class="nav-link text-white" href="{{ route('admin.types.create') }}">
-									<i class="fa-solid fa-plus fa-lg fa-fw"></i> Aggiungi Nuovo Tipo
-								</a>
-
+							<li class="nav-item text-center">
+								<p class="d-inline-flex gap-1">
+									<button class="btn btn-outline-primary text-white px-4" type="button" data-bs-toggle="collapse"
+										data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+										Tipi
+									</button>
+								</p>
+								<div class="collapse text-start" id="collapseExample">
+									<a class="nav-link text-white" href="{{ route('admin.types.index') }}">
+										<i class="fa-solid fa-list-ul fa-lg fa-fw"></i> Lista Tipo
+									</a>
+									<a class="nav-link text-white" href="{{ route('admin.types.create') }}">
+										<i class="fa-solid fa-plus fa-lg fa-fw"></i> Aggiungi Nuovo Tipo
+									</a>
+								</div>
 							</li>
 
 							<li class="nav-item">
