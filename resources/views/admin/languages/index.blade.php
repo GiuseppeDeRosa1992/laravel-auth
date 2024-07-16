@@ -8,7 +8,11 @@
 			@foreach ($languages as $language)
 				<li>
 					<a href="{{ route('admin.languages.show', $language->id) }}">Linguaggio: {{ $language->name }}</a>
+					<p class="{{ $language->icon }}"></p>
 				</li>
+
+				<a href="{{ route('admin.languages.edit', $language->id) }}" class="btn btn-outline-primary my-3">Modifica
+					Linguaggio</a>
 			@endforeach
 		</ul>
 	</div>

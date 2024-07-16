@@ -51,7 +51,11 @@ class LanguageController extends Controller
      */
     public function edit(Language $language)
     {
-        //
+        $data = [
+            "languages" => $language
+        ];
+
+        return view('admin.languages.edit', $data);
     }
 
     /**
@@ -59,7 +63,13 @@ class LanguageController extends Controller
      */
     public function update(Request $request, Language $language)
     {
-        //
+        $data = $request->validate([
+            'name' => 'required',
+            "icon" => 'required'
+        ]);
+        $language->update($data);
+
+        return redirect()->route('admin.languages.index');
     }
 
     /**

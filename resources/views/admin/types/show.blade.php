@@ -6,7 +6,7 @@
 
 		<ul>
 			<li class="mt-2">
-				<a href="">{{ $types->name }}</a>
+				<a href="{{ route('admin.types.index') }}">{{ $types->name }}</a>
 			</li>
 			<li>
 				{{ $types->description }}
