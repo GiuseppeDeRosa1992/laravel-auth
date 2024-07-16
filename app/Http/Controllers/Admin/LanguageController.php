@@ -24,7 +24,11 @@ class LanguageController extends Controller
      */
     public function create()
     {
-        //
+        $languages = Language::all();
+        $data = [
+            "languages" => $languages
+        ];
+        return view('admin.languages.create', $data);
     }
 
     /**
@@ -32,7 +36,16 @@ class LanguageController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->validate([
+            'name' => 'required',
+            "icon" => 'required'
+        ]);
+
+        $newLanguage = new Language();
+        $newLanguage->fill($data);
+        $newLanguage->save();
+
+        return redirect()->route('admin.languages.index');
     }
 
     /**
@@ -77,6 +90,8 @@ class LanguageController extends Controller
      */
     public function destroy(Language $language)
     {
-        //
+        $language->delete();
+
+        return redirect()->route('admin.languages.index');
     }
 }
