@@ -23,6 +23,10 @@ class ProjectsTableSeeder extends Seeder
             $newProject->type_id = $faker->numberBetween(1, 4);
 
             $newProject->save();
+
+            //Ad ogni giro il progetto avrà un id e dopo che si salva tramite il metodo languages() attacca con attach() i numei random che creo nella variabile language
+            $language = [rand(1, 2), rand(3, 4)];
+            $newProject->languages()->attach($language);
         }
     }
 }
