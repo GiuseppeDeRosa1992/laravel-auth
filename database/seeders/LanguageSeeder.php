@@ -14,7 +14,7 @@ class LanguageSeeder extends Seeder
     public function run(): void
     {
         $newHtml = new Language();
-        $newHtml->name = "HTML";
+        $newHtml->name = "Html5";
         $newHtml->icon = "fa-brands fa-html5";
         $newHtml->save();
 

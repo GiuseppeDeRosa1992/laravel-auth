@@ -80,6 +80,23 @@
 								</div>
 							</li>
 
+							<li class="nav-item text-center">
+								<p class="d-inline-flex gap-1">
+									<button class="btn btn-outline-primary text-white px-1" type="button" data-bs-toggle="collapse"
+										data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+										Linguaggi
+									</button>
+								</p>
+								<div class="collapse text-start" id="collapseExample">
+									<a class="nav-link text-white" href="{{ route('admin.languages.index') }}">
+										<i class="fa-solid fa-list-ul fa-lg fa-fw"></i> Lista Linguaggi
+									</a>
+									<a class="nav-link text-white" href="{{ route('admin.languages.create') }}">
+										<i class="fa-solid fa-plus fa-lg fa-fw"></i> Aggiungi Nuovo Linguaggio
+									</a>
+								</div>
+							</li>
+
 							<li class="nav-item">
 								<a class="nav-link text-white" href="{{ route('logout') }}"
 									onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
