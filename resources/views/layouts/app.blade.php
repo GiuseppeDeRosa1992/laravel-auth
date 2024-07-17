@@ -93,7 +93,7 @@
 			</div>
 		</nav>
 
-		<main class="">
+		<main class="bg-dark text-white">
 			@yield('content')
 		</main>
 	</div>
