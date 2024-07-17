@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-	<h1 class="py-2 m-0 text-danger text-center">Modifica Progetto</h1>
+	<h1 class="py-2 m-0 text-primary text-center">Modifica Progetto</h1>
 	<div class="container">
 
 		{{-- MESSAGGIO DI ERRORE SE NON SI COMPLETANO I CAMPI CHE SONO OBBLIGATORI --}}
@@ -70,7 +70,9 @@
 				@enderror
 			</div>
 
-			<button type="submit" class="btn btn-outline-danger">Modifica Progetto</button>
+			<button type="submit" class="btn btn-outline-primary">Modifica Progetto
+				<i class="fa-solid fa-pencil"></i>
+			</button>
 
 		</form>
 	</div>

@@ -2,7 +2,7 @@
 
 @section('content')
 	<div class="container">
-		<h1 class="text-center py-2">Crea Nuovo Linguaggio</h1>
+		<h1 class="text-center py-2 text-success">Crea Nuovo Linguaggio</h1>
 
 		{{-- MESSAGGIO DI ERRORE SE NON SI COMPLETANO I CAMPI CHE SONO OBBLIGATORI --}}
 		<div>
@@ -37,7 +37,9 @@
 				@enderror
 			</div>
 
-			<button type="submit" class="btn btn-outline-primary">Invia Nuovo Tipo</button>
+			<button type="submit" class="btn btn-outline-success">Crea Nuovo Tipo
+				<i class="fa-solid fa-plus"></i>
+			</button>
 		</form>
 	</div>
 @endsection

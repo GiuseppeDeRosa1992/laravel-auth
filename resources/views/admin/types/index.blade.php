@@ -17,14 +17,16 @@
 						</figure>
 
 						<a href="{{ route('admin.types.edit', $type->id) }}" class="btn btn-outline-primary my-3">Modifica
-							Tipo</a>
+							Tipo
+							<i class="fa-solid fa-pencil"></i></a>
 
 						<form method="POST" action="{{ route('admin.types.destroy', $type->id) }}">
 							@csrf
 
 							@method('DELETE')
 							<button type="submit" href="" class="btn btn-outline-danger my-3">Elimina
-								Tipo</button>
+								Tipo
+								<i class="fa-solid fa-trash-can"></i></button>
 						</form>
 					</div>
 				@endforeach

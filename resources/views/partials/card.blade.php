@@ -9,17 +9,21 @@
 						</div>
 						<h5 class="card-title"><b>Titolo Progetto:</b> {{ $projectSingle->title }}</h5>
 					</div>
-					<a href="{{ route('admin.projects.show', $projectSingle->id) }}" class="btn btn-outline-primary my-3">Dettagli
-						Progetto</a>
-					<a href="{{ route('admin.projects.edit', $projectSingle->id) }}" class="btn btn-outline-primary my-3">Modifica
-						Progetto</a>
+					<a href="{{ route('admin.projects.show', $projectSingle->id) }}" class="btn btn-outline-primary my-2">Dettagli
+						Progetto
+						<i class="fa-solid fa-info"></i></a>
+					<a href="{{ route('admin.projects.edit', $projectSingle->id) }}" class="btn btn-outline-primary my-2">Modifica
+						Progetto
+						<i class="fa-solid fa-pencil"></i></a>
 					{{-- CREO FORM PER CANCELLARE UN FUMETTO DAL DATABASE GLI DO LA ROTTA DESTROY E IL METODO POST POI SOTTO LO CAMBIO NEL METODO DELETE --}}
 					<form method="POST" action="{{ route('admin.projects.destroy', $projectSingle->id) }}">
 						@csrf
 
 						@method('DELETE')
-						<button type="submit" href="" class="btn btn-outline-danger my-3">Elimina
-							Progetto</button>
+						<button type="submit" href="" class="btn btn-outline-danger my-2">Elimina
+							Progetto
+							<i class="fa-solid fa-trash-can"></i>
+						</button>
 					</form>
 				</div>
 			</div>

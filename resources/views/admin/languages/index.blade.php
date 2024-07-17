@@ -12,13 +12,15 @@
 				</li>
 
 				<a href="{{ route('admin.languages.edit', $language->id) }}" class="btn btn-outline-primary my-3">Modifica
-					Linguaggio</a>
+					Linguaggio
+					<i class="fa-solid fa-pencil"></i></a>
 
 				<form action="{{ route('admin.languages.destroy', $language->id) }}" method="post">
 					@method('DELETE')
 					@csrf
 					<button type="submit" href="" class="btn btn-outline-danger my-3">Elimina
-						Tipo</button>
+						Tipo
+						<i class="fa-solid fa-trash-can"></i></button>
 				</form>
 			@endforeach
 
