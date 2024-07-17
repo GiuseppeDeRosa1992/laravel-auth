@@ -9,6 +9,7 @@ use App\Models\Project;
 use App\Models\Type;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class ProjectController extends Controller
 {
@@ -113,9 +114,18 @@ class ProjectController extends Controller
         ]);
 
 
+        if ($request->has('img_preview')) {
+            // save the image
+            $img_path = Storage::put('images', $request['img_preview']);
+            $data['img_preview'] = $img_path;
+            if ($project->img_preview && !Str::startsWith($project->img_preview, 'http')) {
+                Storage::delete($project->img_preview);
+            }
+        }
+
         //creo variabile dove metto il percorso per lo storage dove vanno a finire le immagini che prendo dal create e poi le attacco alla variabile data dove passo tutti i dati del validate
-        $img_path = Storage::put('images', $request['img_preview']);
-        $data['img_preview'] = $img_path;
+        // $img_path = Storage::put('images', $request['img_preview']);
+        // $data['img_preview'] = $img_path;
 
 
         $project->update($data);
