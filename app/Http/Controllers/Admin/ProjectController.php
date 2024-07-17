@@ -57,7 +57,6 @@ class ProjectController extends Controller
         $newProject->save();
 
         //dopo che ho slavato come nel seeder gli passo i linguaggi stavolta a mano tramite il create con le checkbox
-
         $newProject->languages()->sync($data['languages']);
 
 
@@ -104,13 +103,11 @@ class ProjectController extends Controller
             'type_id' => 'required|exists:types,id', //exists:tabella dove cercare, colonna dove cercare.
             'languages' => 'array',
             'languages.*' => 'exists:languages,id',
-
         ]);
 
         $project->update($data);
 
         //dopo che ho slavato come nel seeder gli passo i linguaggi stavolta a mano tramite edit per fare update con le checkbox
-
         $project->languages()->sync($data['languages']);
 
 

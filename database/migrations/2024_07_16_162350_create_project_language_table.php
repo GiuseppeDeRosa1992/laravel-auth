@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('language_project', function (Blueprint $table) {
             $table->id();
 
-            $table->foreignId('project_id');
-            $table->foreignId('language_id');
+            $table->foreignId('project_id')->constrained()->cascadeOnDelete(); //CASCADEONDELETE MI SERVE PER CANCELLARE IL PROGETTO SENNO CON IL CONSTRAINED MI DA ERRORE
+            $table->foreignId('language_id')->constrained()->cascadeOnDelete();
 
             $table->timestamps();
         });
