@@ -110,7 +110,12 @@ class ProjectController extends Controller
             'languages.*' => 'exists:languages,id',
         ]);
 
+        //creo variabile dove metto il percorso per lo storage dove vanno a finire le immagini che prendo dal create e poi le attacco alla variabile data dove passo tutti i dati del validate
+        $img_path = Storage::put('images', $request['img_preview']);
+        $data['img_preview'] = $img_path;
+
         $project->update($data);
+
 
         //dopo che ho slavato come nel seeder gli passo i linguaggi stavolta a mano tramite edit per fare update con le checkbox
         $project->languages()->sync($data['languages']);

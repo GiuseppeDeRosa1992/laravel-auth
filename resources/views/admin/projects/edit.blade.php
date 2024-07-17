@@ -39,8 +39,8 @@
 			</div>
 
 			<div class="mb-3">
-				<label for="img_preview" class="form-label">Modifica URL IMmagine Progetto</label>
-				<input type="text" class="form-control" name="img_preview" value="{{ old('title', $project->img_preview) }}">
+				<label for="img_preview" class="form-label">Modifica File Immagine Progetto</label>
+				<input type="file" class="form-control" name="img_preview" value="">
 				@error('img_preview')
 					<div class="form-text text-danger">The Link Preview field is required.</div>
 				@enderror
