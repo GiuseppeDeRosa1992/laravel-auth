@@ -18,7 +18,7 @@
 		</div>
 
 
-		<form method="POST" action="{{ route('admin.projects.store') }}">
+		<form method="POST" action="{{ route('admin.projects.store') }}" enctype="multipart/form-data">
 			@csrf
 
 			<div class="mb-3">
@@ -38,8 +38,8 @@
 			</div>
 
 			<div class="mb-3">
-				<label for="img_preview" class="form-label">URL Immagine Nuovo Progetto</label>
-				<input type="text" class="form-control" name="img_preview" value="{{ old('title') }}">
+				<label for="img_preview" class="form-label">Scegli file per nuova Immagine</label>
+				<input type="file" class="form-control" name="img_preview" placeholder="">
 				@error('img_preview')
 					<div class="form-text text-danger">The Link Preview field is required.</div>
 				@enderror
