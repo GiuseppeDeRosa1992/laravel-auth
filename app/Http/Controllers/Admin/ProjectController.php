@@ -19,7 +19,7 @@ class ProjectController extends Controller
     public function index()
     {
         $data = [
-            'projects' => Project::all()
+            'projects' => Project::paginate(9)
         ];
         return view('admin.projects.index', $data);
     }
@@ -107,7 +107,7 @@ class ProjectController extends Controller
         $data = $request->validate([
             'title' => 'required',
             'description' => 'required|min:10',
-            'img_preview' => 'required',
+            'img_preview' => 'image',
             'type_id' => 'required|exists:types,id', //exists:tabella dove cercare, colonna dove cercare.
             'languages' => 'array',
             'languages.*' => 'exists:languages,id',
