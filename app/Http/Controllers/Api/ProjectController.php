@@ -15,4 +15,13 @@ class ProjectController extends Controller
             'projects' => Project::with(['type', 'languages'])->orderByDesc('id')->paginate(9),
         ]);
     }
+
+    //chiamo la funziona latest come l'ho chiamta alla fine nel projectController e gli passo con take solo gli ultimi 6 progetti
+    public function latest()
+    {
+        return response()->json([
+            'success' => true,
+            'projects' => Project::with(['type', 'languages'])->orderByDesc('id')->take(6)->get(),
+        ]);
+    }
 }
