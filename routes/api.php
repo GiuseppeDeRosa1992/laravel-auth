@@ -23,3 +23,6 @@ Route::get('projects', [ProjectController::class, 'index']);
 
 //creo rotta per gli ultimi progetti
 Route::get('projects/latest', [ProjectController::class, 'latest']);
+
+//creo rotta per i dettagli del progetto
+Route::get('project/{id}', [ProjectController::class, 'show']);
