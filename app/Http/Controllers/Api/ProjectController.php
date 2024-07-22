@@ -26,9 +26,9 @@ class ProjectController extends Controller
     }
 
     //chiamo la funziona show come l'ho chiamta alla fine nel projectController e gli passo
-    public function show($id)
+    public function show($slug)
     {
-        $project = Project::with(['type', 'languages'])->where('id', $id)->first();
+        $project = Project::with(['type', 'languages'])->where('slug', $slug)->first();
 
         if ($project) {
             return response()->json([

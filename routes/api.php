@@ -25,4 +25,4 @@ Route::get('projects', [ProjectController::class, 'index']);
 Route::get('projects/latest', [ProjectController::class, 'latest']);
 
 //creo rotta per i dettagli del progetto
-Route::get('project/{id}', [ProjectController::class, 'show']);
+Route::get('project/{slug}', [ProjectController::class, 'show']);
