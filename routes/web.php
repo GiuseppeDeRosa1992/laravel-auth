@@ -40,6 +40,12 @@ Route::middleware(['auth'])
         Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
     });
 
+Route::get('/mailable', function () {
+    $lead = ['name' => 'Fabio', 'email' => 'fabio@example.com', 'message' => 'lorem ipsum dolor'];
+    // $lead = App\Models\Lead::first();
+    return new App\Mail\NewLeadMessage($lead);
+});
+
 //Auth::check()
 
 // public function index()
