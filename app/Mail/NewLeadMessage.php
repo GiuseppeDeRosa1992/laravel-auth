@@ -17,11 +17,10 @@ class NewLeadMessage extends Mailable
      * Create a new message instance.
      */
 
-    public $lead;
 
-    public function __construct($lead)
+
+    public function __construct(public $lead)
     {
-        $this->lead = $lead;
     }
 
     /**
