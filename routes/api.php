@@ -25,4 +25,5 @@ Route::get('projects', [ProjectController::class, 'index']);
 Route::get('projects/latest', [ProjectController::class, 'latest']);
 
 //creo rotta per i dettagli del progetto
-Route::get('project/{slug}', [ProjectController::class, 'show']);
+Route::get('projects/{project:slug}', [ProjectController::class, 'show']);
+// Route::get('projects/{slug}', [ProjectController::class, 'show']); FUNZIONA UGUALE MA LA SINTASSI PIù GIUSTA è QUELLA SOPRA
