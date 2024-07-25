@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Mail\NewLeadMessage;
+use App\Mail\NewLeadMarkdown;
 use App\Models\Lead;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -36,7 +36,7 @@ class LeadController extends Controller
         $newLead->fill($data);
         $newLead->save();
 
-        Mail::to('info@giuseppe.com')->send(new NewLeadMessage($newLead));
+        Mail::to('info@giuseppe.com')->send(new NewLeadMarkdown($newLead));
 
         return response()->json([
             'success' => true,
