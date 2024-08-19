@@ -14,6 +14,7 @@ class Project extends Model
         'slug',
         'description',
         'img_preview',
+        'link_git',
         'type_id'
     ];
 

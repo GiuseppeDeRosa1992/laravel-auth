@@ -39,6 +39,14 @@
 			</div>
 
 			<div class="mb-3">
+				<label for="link_git" class="form-label">Modifica Link Git-Hub</label>
+				<input type="text" class="form-control" name="link_git" value="{{ old('link_git', $project->link_git) }}">
+				@error('link_git')
+					<div class="form-text text-danger">{{ $message }}</div>
+				@enderror
+			</div>
+
+			<div class="mb-3">
 				<label for="img_preview" class="form-label">Modifica File Immagine Progetto</label>
 				<input type="file" class="form-control" name="img_preview" value="">
 				@error('img_preview')

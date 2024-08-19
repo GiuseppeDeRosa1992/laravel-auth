@@ -38,6 +38,14 @@
 			</div>
 
 			<div class="mb-3">
+				<label for="link_git" class="form-label">Link Git-Hub Nuovo Progetto</label>
+				<input type="text" class="form-control" name="link_git" value="{{ old('link_git') }}">
+				@error('link_git')
+					<div class="form-text text-danger">{{ $message }}</div>
+				@enderror
+			</div>
+
+			<div class="mb-3">
 				<label for="img_preview" class="form-label">Scegli file per nuova Immagine</label>
 				<input type="file" class="form-control" name="img_preview" placeholder="">
 				@error('img_preview')

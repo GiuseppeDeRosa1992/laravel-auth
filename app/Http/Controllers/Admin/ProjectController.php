@@ -48,6 +48,7 @@ class ProjectController extends Controller
             'title' => 'required',
             'description' => 'required|min:10',
             'img_preview' => 'required',
+            'link_git' => 'required',
             'type_id' => 'required',
             //passo al validate languages e gli dico che e un array e dopo tutto quello che c'è in languages con * con exists nella tabella languages id
             'languages' => 'array',
@@ -111,6 +112,7 @@ class ProjectController extends Controller
             'title' => 'required',
             'description' => 'required|min:10',
             'img_preview' => 'image',
+            'link_git' => 'required|min:10',
             'type_id' => 'required|exists:types,id', //exists:tabella dove cercare, colonna dove cercare.
             'languages' => 'array',
             'languages.*' => 'exists:languages,id',

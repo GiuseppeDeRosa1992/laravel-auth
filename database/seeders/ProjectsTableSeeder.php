@@ -14,19 +14,20 @@ class ProjectsTableSeeder extends Seeder
      */
     public function run(Faker $faker): void
     {
-        for ($i = 0; $i < 36; $i++) {
-            $newProject = new Project();
-            $newProject->title = $faker->sentence(2);
-            $newProject->description = $faker->paragraphs(3, true);
-            $newProject->img_preview = "https://picsum.photos/id/" . $faker->numberBetween(1, 700) . "/540/960";
+        // for ($i = 0; $i < 36; $i++) {
+        //     $newProject = new Project();
+        //     $newProject->title = $faker->sentence(2);
+        //     $newProject->description = $faker->paragraphs(3, true);
+        //     $newProject->img_preview = "https://picsum.photos/id/" . $faker->numberBetween(1, 700) . "/540/960";
 
-            $newProject->type_id = $faker->numberBetween(1, 4);
 
-            $newProject->save();
+        //     $newProject->type_id = $faker->numberBetween(1, 4);
 
-            //Ad ogni giro il progetto avrà un id e dopo che si salva tramite il metodo languages() attacca con attach() i numei random che creo nella variabile language
-            $language = [rand(1, 2), rand(3, 5)];
-            $newProject->languages()->sync($language);
-        }
+        //     $newProject->save();
+
+        //     //Ad ogni giro il progetto avrà un id e dopo che si salva tramite il metodo languages() attacca con attach() i numei random che creo nella variabile language
+        //     $language = [rand(1, 2), rand(3, 5)];
+        //     $newProject->languages()->sync($language);
+        // }
     }
 }
