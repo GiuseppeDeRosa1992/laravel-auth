@@ -5,8 +5,12 @@
 				<div class="card p-0 h-100">
 					<div class="row g-0 m-0">
 						<div class="col-12">
-							<img src="{{ asset('storage/' . $projectSingle->img_preview) }}" class="img-fluid rounded-start mb-2"
-								alt="immagine-progetto">
+							@if (Str::startsWith($projectSingle->img_preview, 'http'))
+								<img src="{{ $projectSingle->img_preview }}" class="img-fluid rounded-start mb-2" alt="immagine-progetto">
+							@else
+								<img src="{{ asset('storage/' . $projectSingle->img_preview) }}" class="img-fluid rounded-start mb-2"
+									alt="immagine-progetto">
+							@endif
 						</div>
 						<h5 class="card-title"><b>Titolo Progetto:</b> {{ $projectSingle->title }}</h5>
 					</div>
