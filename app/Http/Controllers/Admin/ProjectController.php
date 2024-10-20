@@ -124,7 +124,7 @@ class ProjectController extends Controller
 
         if ($request->has('img_preview')) {
             // save the image
-            $img_path = Storage::put('images', $request['img_preview']);
+            $img_path = $request->file('img_preview')->store('images', 'public');
             $data['img_preview'] = $img_path;
             if ($project->img_preview && !Str::startsWith($project->img_preview, 'http')) {
                 Storage::delete($project->img_preview);
